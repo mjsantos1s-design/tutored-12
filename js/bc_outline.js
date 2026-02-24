@@ -46,7 +46,7 @@ function makeOutline() {
    outline.appendChild(mainHeading);
    outline.appendChild(outlineList);
 
-   createList(source, outlineList)
+   createList(source, outlineList);
 }
 
 function createList(source, outlineList) {
@@ -59,13 +59,12 @@ function createList(source, outlineList) {
    // Running total of the article headings
    var headNum = 0;
 
-   /* Loop through all of the child nodes of source article until no child nodes are left */
+      /* Loop through all of the child nodes of source article until no child nodes are left */
+      for (var n = source.firstChild; n !== null; n = n.nextSibling) {
+         // Examine only article headings
+         var headLevel = headings.indexOf(n.nodeName);
 
-   for (var n = source.firstChild; n !== null; n = n.nextSibling) {
-      //Examine only article headings
-      var headLevel = headings.indexOf(n.nodeName);
-
-      if (headLevel !== -1) {
+if (headLevel !== -1) {
          // Add an id to the heading if it is missing
          headNum++;
          if (n.hasAttribute("id") === false) {
@@ -82,6 +81,7 @@ function createList(source, outlineList) {
          listElem.appendChild(linkElem);
 
          listElem.innerHTML = n.firstChild.nodeValue;
+
         if (headLevel === prevLevel) {
          // Append the list item to the current list
          outlineList.appendChild(listElem);
@@ -110,5 +110,9 @@ function createList(source, outlineList) {
       }
    }
 }
+
+
+
+      
 
 
