@@ -59,7 +59,7 @@ function setupStyles() {
 
    document.styleSheets[document.styleSheets.length-1].insertRule(
       "div#styleButtons input { \
-         backgound-color: rgba(68, 94, 186, 0.6); \
+         background-color: rgba(68, 94, 186, 0.6); \
          border: 3px solid rgba(0, 24, 123, 0.6); \
          border-radius: 50%; \
          cursor: pointer; \

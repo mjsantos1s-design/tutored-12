@@ -60,11 +60,12 @@ function createList(source, outlineList) {
    var headNum = 0;
 
       /* Loop through all of the child nodes of source article until no child nodes are left */
+
       for (var n = source.firstChild; n !== null; n = n.nextSibling) {
          // Examine only article headings
          var headLevel = headings.indexOf(n.nodeName);
-
-if (headLevel !== -1) {
+         
+         if (headLevel !== -1) {
          // Add an id to the heading if it is missing
          headNum++;
          if (n.hasAttribute("id") === false) {
