@@ -71,6 +71,7 @@ function createList(source, outlineList) {
          if (n.hasAttribute("id") === false) {
             n.setAttribute("id", "head" + headNum);
          }
+
          var listElem = document.createElement("li");
 
          // Create hypertext links to the document headings
@@ -80,8 +81,6 @@ function createList(source, outlineList) {
 
          //Append the hypertext link to the list item
          listElem.appendChild(linkElem);
-
-         listElem.innerHTML = n.firstChild.nodeValue;
 
         if (headLevel === prevLevel) {
          // Append the list item to the current list
@@ -98,12 +97,12 @@ function createList(source, outlineList) {
         } else {
          // Append the list item to a higher list
          // Calculate the difference between the current and previous level
-         var levelup = prevLevel - headLevel;
+         var levelUp = prevLevel - headLevel;
          // Go up to the higher level
-         for (var i = 1; i <= levelup; i++) {
+         for (var i = 1; i <= levelUp; i++) {
             outlineList = outlineList.parentNode.parentNode;
          }
-         outlineList.appendChild(listElem)
+         outlineList.appendChild(listElem);
         }
 
          //Update the value of PrevLevel
